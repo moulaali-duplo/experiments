@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-app-service
+spec:
+  type: LoadBalancer  # This exposes the service externally using a cloud provider's load balancer.
+  ports:
+  - port: 80  # External port
+    targetPort: 3000  # Port on the pod
+  selector:
+    app: nodejs-app  # Selects the pods with the label "app: nodejs-app"
